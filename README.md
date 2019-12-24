@@ -20,51 +20,9 @@
     .title { font-size: 20px; margin: 20px 0; color: #ccc; }
     ```
 
-1. Использование принципа БЭМа для именования стилей. Облегчает чтение и понимание структуры .блок__элемент--модификатор
-
-    Пример 1:
-    ```html
-    <div class="message">
-      <h3 class="message__title">Заголовок сообщения</h3>
-      <div class="message__text">Текст сообщения</div>
-      <div class="message__text--error">Текст ошибки</div>
-    </div>
-    ```
-
-    Пример 2:
-    ```html
-    <div class="news">
-        <h3 class="news__title">Новости</h3>
-        <ul class="news__list">
-          <li class="news__item news-item">
-            <h4 class="news-item__title">Заголовок новости</h4>
-            <p class="news-item__text">Текст новости</p>
-          </li>
-          <li class="news__item"><!-- новость --></li>
-        </ul>
-    </div>
-    ```
+1. Использование принципа БЭМа для именования стилей. Облегчает чтение и понимание структуры вёрстки. Почитать можно [тут](https://ru.bem.info/methodology/css/)
 
 1. Не использовать `important` без весомых причин. Затрудняет поддержку вёрстки
-
-    Плохо:
-    ```html
-    <div class="message">
-        <div class="message__title">Nice code</div>
-    </div>
-    ```
-    ```css
-    .message__title { font-size: 20px !important; }
-    ```
-    Хорошо:
-    ```html
-    <div class="some-parent">
-        <div class="title">Nice code</div>
-    </div>
-    ```
-    ```css
-    .message.message__title { font-size: 20px; }
-    ```
 
 1. Стилизовать классы, а не айдишники и не элементы.
   Айди должен быть уникальным на странице и он имеет приоритет, как селектор -- это лишает нас гибкости в вёрстке.
@@ -118,7 +76,8 @@
 
 1. Не пишите строчки кода длинее 120 символов -- разбивайте и переносите, это повышает читаемость кода.
 
-1. Откажитесь от jQuery в пользу натива. Чем больше приложение, тем больше будут заметны миллисекунды задержек выполнения кода. Сравнение скорости http://vanilla-js.com/
+1. Откажитесь от jQuery в пользу натива. Чем больше приложение, тем больше будут заметны миллисекунды задержек выполнения кода. Сравнение скорости http://vanilla-js.com/.
+[Removing jQuery from GitHub.com frontend](https://github.blog/2018-09-06-removing-jquery-from-github-frontend/)
 
 1. Если данные используются дважды -- вынесите в переменную. Это касается функций, объектов DOM, результатов вычислений и тд
 
