@@ -20,7 +20,37 @@
     .title { font-size: 20px; margin: 20px 0; color: #ccc; }
     ```
 
-1. Использование принципа БЭМа для именования стилей. Облегчает чтение и понимание структуры вёрстки. Почитать можно [тут](https://ru.bem.info/methodology/css/)
+1. Использование принципа БЭМа для именования стилей. Облегчает чтение и понимание структуры вёрстки. Почитать можно [тут](https://ru.bem.info/methodology/css/).
+  Я предпочитаю использовать следующий формат:
+    ```html
+    <div class="users">
+      <div class="users__list">
+        <div class="users__item">User 1</div>
+        <div class="usesr__item">User 2</div>
+        <div class="users__item users__item--special">User 3</div>
+        <div class="users__item">User 4</div>
+      </div>
+      <div class="users__control">
+        <div class="users__button button button--accept">Add</div>
+        <div class="users__button button button--reject">Remove</div>
+      </div>
+    </div>
+    ```
+    В данном случае мы видим блок `user`, в нём есть дочерние элементы `list`, `item`, `controls`, `button`, у дочернего элемента `item` есть модификатор `special`.
+
+    Структура scss в данном случае будет выглядеть следующим образом
+    ```scss
+    .users {
+      ...
+      &__list { ... }
+      &__item {
+        ...
+        &--special {}
+      }
+     }
+    ```
+    Всё просто, красиво и понятно!
+
 
 1. Не использовать `important` без весомых причин. Затрудняет поддержку вёрстки
 
